@@ -67,24 +67,71 @@ foreach (int pa in pari_n)
 }
 
 //4-INTERMEDIO
-int volte = 0;
-List<string> copia = parole;
-foreach(string par in parole)
+List<string> copia = new List<string>();
+foreach(string par1 in parole)
 {
-    foreach(string par2 in parole)
+    if(!copia.Contains(par1))
     {
-        if(par == par2)
+        copia.Add(par1);
+    }
+}
+Console.WriteLine();
+foreach(string nuove in copia)
+{
+    Console.Write(nuove + " ");
+}
+
+//5-INTERMEDIO
+Console.WriteLine("\nInserisci numero: ");
+int numero = Int32.Parse(Console.ReadLine());
+if(n.Contains(numero))
+{
+    for(int i = 0; i < n.Count; i++)
+    {
+        if(n[i] == numero)
+        {
+            Console.WriteLine("Indice: " + i);
+            n.RemoveAt(i);
+        }
+    }
+}
+foreach(int nu in n)
+{
+    Console.Write(nu + " ");
+}
+
+//7-AVANZATO
+List<int> seq1 = [7, 77, 777];
+List<int> seq2 = [7, 777, 7777];
+List<int> comuni = new List<int>();
+foreach(int i in seq1)
+{
+    foreach(int j in seq2)
+    {
+        if (j == i)
+        {
+            comuni.Add(i);
+        }
+    }
+}
+Console.WriteLine();
+foreach (int com in comuni)
+{
+    Console.Write(com + " ");
+}
+
+//8-AVANZATO
+int volte = 0;
+Console.WriteLine();
+foreach(string vol in parole)
+{
+    foreach(string vol1 in parole)
+    {
+        if(vol1 ==  vol)
         {
             volte++;
         }
     }
-    if(volte > 1)
-    {
-        copia.Remove(par);
-    }
+    Console.WriteLine(vol + ": " + volte);
     volte = 0;
-}
-foreach(string nuove in copia)
-{
-    Console.Write(nuove + " ");
 }
